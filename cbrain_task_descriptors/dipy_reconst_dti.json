@@ -1,0 +1,59 @@
+{
+    "tool-version": "0.0.1", 
+    "name": "dipy_dti_reconst", 
+    "command-line": "dipy_fit_dti [OUTPUT_FA] [INPUT_DWI] [BVALUES] [BVECTORS] [MASK]", 
+    "inputs": [
+        {
+            "description": "Input DWI image (e.g. img.nii.gz)", 
+            "value-key": "[INPUT_DWI]", 
+            "type": "File", 
+            "optional": false, 
+            "id": "infile", 
+            "name": "Input DWI file"
+        }, 
+        {
+            "description": "Output brain mask (e.g. img_bet.nii.gz)", 
+            "value-key": "[MASK]", 
+            "type": "File", 
+            "optional": false, 
+            "id": "maskfile", 
+            "name": "Mask file"
+        }, 
+        {
+            "description": "B-Values (bval)", 
+            "value-key": "[BVALUES]", 
+            "type": "File", 
+            "optional": false, 
+            "id": "bvalues", 
+            "name": "B Values"
+        }, 
+        {
+            "description": "B Vectors (bvec)", 
+            "value-key": "[BVECTORS]", 
+            "type": "File", 
+            "optional": false, 
+            "id": "bvectors", 
+            "name": "B Vectors"
+        },
+	{
+	    "command-line-flag": "--out_fa",
+            "description": "Output FA",
+            "value-key": "[OUTPUT_FA]",
+	    "default-value": "myfa.nii.gz",
+            "type": "String",
+            "optional": false,
+            "id": "outputfa",
+            "name": "output fa"
+	}],
+    "schema-version": "0.5", 
+    "output-files": [
+        {
+            "path-template": "[OUTPUT_FA]",
+            "description": "Fractional Anisotropy",
+            "optional": true,
+            "id": "outFAfile",
+            "name": "Output FA file"
+        } 
+    ], 
+    "description": "Automated dti reconstruction from DIPY"
+}
